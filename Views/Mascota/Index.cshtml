@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MVC_TeChineoTuLomito.Models.Mascota>
+
+@{
+    ViewData["Title"] = "Mascotas";
+}
+
+<h1>Mascotas</h1>
+
+<!-- 🔍 Formulario de búsqueda por especie -->
+<form asp-action="Index" method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="searchString" class="form-control" placeholder="Buscar por especie o nombre..." />
+        <button type="submit" class="btn btn-outline-primary">Buscar</button>
+    </div>
+</form>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Registrar Mascota</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().id)</th>
+            <th>@Html.DisplayNameFor(model => model.First().identificacionDueño)</th>
+            <th>@Html.DisplayNameFor(model => model.First().nombreMascota)</th>
+            <th>@Html.DisplayNameFor(model => model.First().especie)</th>
+            <th>@Html.DisplayNameFor(model => model.First().raza)</th>
+            <th>@Html.DisplayNameFor(model => model.First().edad)</th>
+            <th>@Html.DisplayNameFor(model => model.First().color)</th>
+            <th>@Html.DisplayNameFor(model => model.First().ultimaFechaAtencion)</th>
+            <th>@Html.DisplayNameFor(model => model.First().ultimaFechaVacunacion)</th>
+            <th>@Html.DisplayNameFor(model => model.First().telefonoDueno)</th>
+            <th>@Html.DisplayNameFor(model => model.First().emailDueno)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@Html.DisplayFor(modelItem => item.identificacionDueño)</td>
+                <td>@Html.DisplayFor(modelItem => item.nombreMascota)</td>
+                <td>@Html.DisplayFor(modelItem => item.especie)</td>
+                <td>@Html.DisplayFor(modelItem => item.raza)</td>
+                <td>@item.edad</td>
+                <td>@Html.DisplayFor(modelItem => item.color)</td>
+                <td>@item.ultimaFechaAtencion.ToString("dd/MM/yyyy")</td>
+                <td>@item.ultimaFechaVacunacion.ToString("dd/MM/yyyy")</td>
+                <td>@Html.DisplayFor(modelItem => item.telefonoDueno)</td>
+                <td>@Html.DisplayFor(modelItem => item.emailDueno)</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

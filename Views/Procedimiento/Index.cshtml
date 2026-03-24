@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MVC_TeChineoTuLomito.Models.Procedimiento>
+
+@{
+    ViewData["Title"] = "Procedimientos";
+}
+
+<h1>Procedimientos</h1>
+
+<!-- 🔍 Formulario de búsqueda -->
+<form asp-action="Index" method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="searchString" class="form-control" placeholder="Buscar por tipo de procedimiento..." />
+        <button type="submit" class="btn btn-outline-primary">Buscar</button>
+    </div>
+</form>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Crear Procedimiento</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().id)</th>
+            <th>@Html.DisplayNameFor(model => model.First().tipoProcedimiento)</th>
+            <th>@Html.DisplayNameFor(model => model.First().descripcion)</th>
+            <th>@Html.DisplayNameFor(model => model.First().precio)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.tipoProcedimiento</td>
+                <td>@item.descripcion</td>
+                <td>₡@item.precio.ToString("N2")</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

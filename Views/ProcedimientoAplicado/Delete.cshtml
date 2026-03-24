@@ -1,0 +1,58 @@
+﻿@model MVC_TeChineoTuLomito.Models.ProcedimientoAplicado
+
+@{
+    ViewData["Title"] = "Eliminar Procedimiento Aplicado";
+}
+
+<h1>Eliminar</h1>
+<h4>¿Estás seguro que deseas eliminar este procedimiento?</h4>
+<hr />
+<dl class="row">
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.idProcedimientoAplicado)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.idProcedimientoAplicado)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.identificacionDueno)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.identificacionDueno)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.nombreMascota)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.nombreMascota)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.tipoProcedimientoAplicado)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.tipoProcedimientoAplicado)
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.precioProcedimientoConImpuesto)
+    </dt>
+    <dd class="col-sm-9">
+        ₡@Model.precioProcedimientoConImpuesto.ToString("N2")
+    </dd>
+
+    <dt class="col-sm-3">
+        @Html.DisplayNameFor(model => model.estadoProcedimento)
+    </dt>
+    <dd class="col-sm-9">
+        @Html.DisplayFor(model => model.estadoProcedimento)
+    </dd>
+</dl>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="idProcedimientoAplicado" />
+    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+    <a asp-action="Index">Volver a la lista</a>
+</form>

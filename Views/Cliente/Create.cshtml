@@ -1,0 +1,82 @@
+﻿@model MVC_TeChineoTuLomito.Models.Cliente
+
+@{
+    ViewData["Title"] = "Crear Cliente";
+}
+
+<h1>Crear</h1>
+
+<h4>Cliente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="identificacion" class="control-label">Identificación</label>
+                <input asp-for="identificacion" class="form-control" placeholder="Ej. 1-1234-5678" />
+                <span asp-validation-for="identificacion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="nombreCompleto" class="control-label">Nombre Completo</label>
+                <input asp-for="nombreCompleto" class="form-control" placeholder="Ej. Ana Rodríguez" />
+                <span asp-validation-for="nombreCompleto" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="provincia" class="control-label">Provincia</label>
+                <input asp-for="provincia" class="form-control" placeholder="Ej. San José" />
+                <span asp-validation-for="provincia" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="canton" class="control-label">Cantón</label>
+                <input asp-for="canton" class="form-control" placeholder="Ej. Central" />
+                <span asp-validation-for="canton" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="distrito" class="control-label">Distrito</label>
+                <input asp-for="distrito" class="form-control" placeholder="Ej. Carmen" />
+                <span asp-validation-for="distrito" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="direccionExacta" class="control-label">Dirección Exacta</label>
+                <input asp-for="direccionExacta" class="form-control" placeholder="Ej. Avenida 1, Calle 3" />
+                <span asp-validation-for="direccionExacta" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="telefono" class="control-label">Teléfono</label>
+                <input asp-for="telefono" class="form-control" placeholder="Ej. 8888-8888" />
+                <span asp-validation-for="telefono" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="preferenciaContacto" class="control-label">Preferencia de Contacto</label>
+                <select asp-for="preferenciaContacto" class="form-control">
+                    <option value="true">Llamada</option>
+                    <option value="false">WhatsApp</option>
+                </select>
+                <span asp-validation-for="preferenciaContacto" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

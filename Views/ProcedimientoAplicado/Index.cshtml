@@ -1,0 +1,51 @@
+﻿@model List<MVC_TeChineoTuLomito.Models.ProcedimientoAplicado>
+
+@{
+    ViewData["Title"] = "Listado de Procedimientos Aplicados";
+}
+
+<h1>Procedimientos Aplicados</h1>
+
+<!-- 🔍 Formulario de búsqueda por nombre de mascota -->
+<form asp-action="Index" method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="searchString" class="form-control" placeholder="Buscar por nombre de mascota..." />
+        <button type="submit" class="btn btn-outline-primary">Buscar</button>
+    </div>
+</form>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Registrar nuevo procedimiento</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model[0].idProcedimientoAplicado)</th>
+            <th>@Html.DisplayNameFor(model => model[0].identificacionDueno)</th>
+            <th>@Html.DisplayNameFor(model => model[0].nombreMascota)</th>
+            <th>@Html.DisplayNameFor(model => model[0].tipoProcedimientoAplicado)</th>
+            <th>@Html.DisplayNameFor(model => model[0].precioProcedimientoConImpuesto)</th>
+            <th>@Html.DisplayNameFor(model => model[0].estadoProcedimento)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.idProcedimientoAplicado</td>
+                <td>@item.identificacionDueno</td>
+                <td>@item.nombreMascota</td>
+                <td>@item.tipoProcedimientoAplicado</td>
+                <td>₡@item.precioProcedimientoConImpuesto.ToString("N2")</td>
+                <td>@item.estadoProcedimento</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.idProcedimientoAplicado">Detalles</a> |
+                    <a asp-action="Edit" asp-route-id="@item.idProcedimientoAplicado">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.idProcedimientoAplicado">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

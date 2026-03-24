@@ -1,0 +1,95 @@
+﻿@model MVC_TeChineoTuLomito.Models.ProcedimientoAplicado
+
+@{
+    ViewData["Title"] = "Editar Procedimiento Aplicado";
+    var procedimientos = ViewBag.ProcedimientosDisponibles as List<string>;
+    var estados = ViewBag.EstadosDisponibles as List<string>;
+}
+
+<h1>Editar</h1>
+
+<h4>Procedimiento Aplicado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- ID (deshabilitado + oculto) -->
+            <div class="form-group">
+                <label asp-for="idProcedimientoAplicado" class="control-label">ID</label>
+                <input asp-for="idProcedimientoAplicado" class="form-control" disabled />
+                <input type="hidden" asp-for="idProcedimientoAplicado" />
+                <span asp-validation-for="idProcedimientoAplicado" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="identificacionDueno" class="control-label">Identificación del Dueño</label>
+                <input asp-for="identificacionDueno" class="form-control" />
+                <span asp-validation-for="identificacionDueno" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="nombreMascota" class="control-label">Nombre de la Mascota</label>
+                <input asp-for="nombreMascota" class="form-control" />
+                <span asp-validation-for="nombreMascota" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="tipoProcedimientoAplicado" class="control-label">Tipo de Procedimiento</label>
+                <select asp-for="tipoProcedimientoAplicado" class="form-control">
+                    @if (procedimientos != null && procedimientos.Any())
+                    {
+                        foreach (var nombre in procedimientos)
+                        {
+                            <option value="@nombre" selected="@(Model.tipoProcedimientoAplicado == nombre)">
+                                @nombre
+                            </option>
+                        }
+                    }
+                    else
+                    {
+                        <option disabled>No hay procedimientos disponibles</option>
+                    }
+                </select>
+                <span asp-validation-for="tipoProcedimientoAplicado" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="estadoProcedimento" class="control-label">Estado del Procedimiento</label>
+                <select asp-for="estadoProcedimento" class="form-control">
+                    @if (estados != null && estados.Any())
+                    {
+                        foreach (var estado in estados)
+                        {
+                            <option value="@estado" selected="@(Model.estadoProcedimento == estado)">
+                                @estado
+                            </option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="estadoProcedimento" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="precioProcedimientoConImpuesto" class="control-label">Precio con Impuesto</label>
+                <input asp-for="precioProcedimientoConImpuesto" class="form-control" disabled />
+                <span asp-validation-for="precioProcedimientoConImpuesto" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

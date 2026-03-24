@@ -1,0 +1,111 @@
+﻿@model MVC_TeChineoTuLomito.Models.Mascota
+
+@{
+    ViewData["Title"] = "Editar Mascota";
+}
+
+<h1>Editar</h1>
+
+<h4>Mascota</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- ID (deshabilitado + oculto) -->
+            <div class="form-group">
+                <label asp-for="id" class="control-label">ID</label>
+                <input asp-for="id" class="form-control" disabled />
+                <input type="hidden" asp-for="id" />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="identificacionDueño" class="control-label">Identificación del Dueño</label>
+                <input asp-for="identificacionDueño" class="form-control" />
+                <span asp-validation-for="identificacionDueño" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="nombreMascota" class="control-label">Nombre de la Mascota</label>
+                <input asp-for="nombreMascota" class="form-control" />
+                <span asp-validation-for="nombreMascota" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="especie" class="control-label">Especie</label>
+                <select asp-for="especie" class="form-control">
+                    <option value="caballo">Caballo</option>
+                    <option value="perro">Perro</option>
+                    <option value="gato">Gato</option>
+                    <option value="pez">Pez</option>
+                    <option value="cabra">Cabra</option>
+                    <option value="conejo">Conejo</option>
+                    <option value="vaca">Vaca</option>
+                    <option value="cerdo">Cerdo</option>
+                    <option value="roedor">Roedor</option>
+                    <option value="serpiente">Serpiente</option>
+                    <option value="otro">Otro</option>
+                </select>
+                <span asp-validation-for="especie" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="raza" class="control-label">Raza</label>
+                <input asp-for="raza" class="form-control" />
+                <span asp-validation-for="raza" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="edad" class="control-label">Edad</label>
+                <input asp-for="edad" class="form-control" type="number" min="0" />
+                <span asp-validation-for="edad" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="color" class="control-label">Color</label>
+                <input asp-for="color" class="form-control" />
+                <span asp-validation-for="color" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ultimaFechaAtencion" class="control-label">Última Fecha de Atención</label>
+                <input asp-for="ultimaFechaAtencion" class="form-control" type="date" />
+                <span asp-validation-for="ultimaFechaAtencion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ultimaFechaVacunacion" class="control-label">Última Fecha de Vacunación</label>
+                <input asp-for="ultimaFechaVacunacion" class="form-control" type="date" />
+                <span asp-validation-for="ultimaFechaVacunacion" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="telefonoDueno" class="control-label">Teléfono del Dueño</label>
+                <input asp-for="telefonoDueno" class="form-control" />
+                <span asp-validation-for="telefonoDueno" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="emailDueno" class="control-label">Correo Electrónico del Dueño</label>
+                <input asp-for="emailDueno" class="form-control" type="email" />
+                <span asp-validation-for="emailDueno" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

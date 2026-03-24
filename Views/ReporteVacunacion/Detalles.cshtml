@@ -1,0 +1,37 @@
+﻿@model MVC_TeChineoTuLomito.Models.Cliente
+
+@{
+    ViewData["Title"] = "Detalles del Cliente";
+}
+
+<h1>Detalles del Cliente</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Identificación</dt>
+        <dd class="col-sm-9">@Model.identificacion</dd>
+
+        <dt class="col-sm-3">Nombre Completo</dt>
+        <dd class="col-sm-9">@Model.nombreCompleto</dd>
+
+        <dt class="col-sm-3">Provincia</dt>
+        <dd class="col-sm-9">@Model.provincia</dd>
+
+        <dt class="col-sm-3">Cantón</dt>
+        <dd class="col-sm-9">@Model.canton</dd>
+
+        <dt class="col-sm-3">Distrito</dt>
+        <dd class="col-sm-9">@Model.distrito</dd>
+
+        <dt class="col-sm-3">Dirección Exacta</dt>
+        <dd class="col-sm-9">@Model.direccionExacta</dd>
+
+        <dt class="col-sm-3">Teléfono</dt>
+        <dd class="col-sm-9">@Model.telefono</dd>
+
+        <dt class="col-sm-3">Preferencia de Contacto</dt>
+        <dd class="col-sm-9">@((Model.preferenciaContacto ? "Llamada" : "WhatsApp"))</dd>
+    </dl>
+</div>
+
+<a asp-action="Index">Volver al reporte</a>

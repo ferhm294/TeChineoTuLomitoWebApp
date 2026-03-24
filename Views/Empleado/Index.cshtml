@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVC_TeChineoTuLomito.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Empleados";
+}
+
+<h1>Empleados</h1>
+
+<!-- 🔍 Formulario de búsqueda -->
+<form asp-action="Index" method="get" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="searchString" class="form-control" placeholder="Buscar por nombre..." />
+        <button type="submit" class="btn btn-outline-primary">Buscar</button>
+    </div>
+</form>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Crear Empleado</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.First().identificacion)</th>
+            <th>@Html.DisplayNameFor(model => model.First().nombreCompleto)</th>
+            <th>@Html.DisplayNameFor(model => model.First().fechaNacimiento)</th>
+            <th>@Html.DisplayNameFor(model => model.First().fechaContratacion)</th>
+            <th>@Html.DisplayNameFor(model => model.First().salarioXDia)</th>
+            <th>@Html.DisplayNameFor(model => model.First().fechaRetiro)</th>
+            <th>@Html.DisplayNameFor(model => model.First().tipoEmpleado)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.identificacion)</td>
+                <td>@Html.DisplayFor(modelItem => item.nombreCompleto)</td>
+                <td>@item.fechaNacimiento.ToString("dd/MM/yyyy")</td>
+                <td>@item.fechaContratacion.ToString("dd/MM/yyyy")</td>
+                <td>@("₡" + item.salarioXDia.ToString("N0"))</td>
+                <td>@item.fechaRetiro.ToString("dd/MM/yyyy")</td>
+                <td>@Html.DisplayFor(modelItem => item.tipoEmpleado)</td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { identificacion = item.identificacion }) |
+                    @Html.ActionLink("Detalles", "Details", new { identificacion = item.identificacion }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { identificacion = item.identificacion })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

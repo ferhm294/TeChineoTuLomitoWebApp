@@ -1,0 +1,79 @@
+﻿@model MVC_TeChineoTuLomito.Models.ProcedimientoAplicado
+
+@{
+    ViewData["Title"] = "Registrar Procedimiento Aplicado";
+    var procedimientos = ViewBag.ProcedimientosDisponibles as List<string>;
+    var estados = ViewBag.EstadosDisponibles as List<string>;
+}
+
+<h1>Registrar</h1>
+
+<h4>Procedimiento Aplicado</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="identificacionDueno" class="control-label">Identificación del Dueño</label>
+                <input asp-for="identificacionDueno" class="form-control" />
+                <span asp-validation-for="identificacionDueno" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="nombreMascota" class="control-label">Nombre de la Mascota</label>
+                <input asp-for="nombreMascota" class="form-control" />
+                <span asp-validation-for="nombreMascota" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="tipoProcedimientoAplicado" class="control-label">Tipo de Procedimiento</label>
+                <select asp-for="tipoProcedimientoAplicado" class="form-control">
+                    <option value="">Seleccione un procedimiento</option>
+                    @if (procedimientos != null && procedimientos.Any())
+                    {
+                        foreach (var nombre in procedimientos)
+                        {
+                            <option value="@nombre">@nombre</option>
+                        }
+                    }
+                    else
+                    {
+                        <option disabled>No hay procedimientos disponibles</option>
+                    }
+                </select>
+                <span asp-validation-for="tipoProcedimientoAplicado" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="estadoProcedimento" class="control-label">Estado del Procedimiento</label>
+                <select asp-for="estadoProcedimento" class="form-control">
+                    <option value="">Seleccione un estado</option>
+                    @if (estados != null && estados.Any())
+                    {
+                        foreach (var estado in estados)
+                        {
+                            <option value="@estado">@estado</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="estadoProcedimento" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
