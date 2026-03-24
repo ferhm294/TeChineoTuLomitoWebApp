@@ -56,4 +56,4 @@ El sistema permite gestionar clientes, empleados, mascotas y procedimientos vete
 ## 📜 Licencia
 
 Licencia MIT  
-Derechos de Autor (c) [2026] [Fernando Hernández]  
+Derechos de Autor (c) [2025] [Fernando Hernández]  
