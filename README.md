@@ -1,4 +1,4 @@
-# TeChineoTuLomito WebApp 🐾
+# 🐾 TeChineoTuLomito WebApp
 
 ## Descripción
 
@@ -9,23 +9,36 @@ Cada rama incluye su propio **README.md** explicando en detalle la función y ca
 La base de datos utilizada por esta aplicación se encuentra en el siguiente repositorio:  
 👉 [DataBaseTeChineoTuLomito](https://github.com/ferhm294/DataBaseTeChineoTuLomito)
 
+---
+
 ## Ramas
 
 - **MVC**: Contiene la aplicación del administrador desarrollada bajo el patrón **Model-View-Controller** en C# .NET Core.  
-- **API**: Implementa una **API REST** con todos los CRUDs de la base de datos, permitiendo la interacción con las entidades principales del sistema.
+- **API**: Implementa una **API REST** con los CRUDs principales de la base de datos, permitiendo la interacción con las entidades del sistema.
+
+---
+
+## Nota importante sobre el CRUD de *Procedimiento Aplicado*
+
+El CRUD de **Procedimiento Aplicado** **no fue implementado por completo**, ya que **no era un requerimiento técnico** dentro del enunciado original del proyecto.  
+Por esta razón, es posible que en esa sección existan errores o funcionalidades incompletas.
+
+---
 
 ## Organización
 
 - Este README describe el propósito general del repositorio.  
-- Cada rama tendrá su propio README con información más detallada sobre su implementación, uso y objetivos.
+- Cada rama tiene su propio README con información más detallada sobre su implementación, uso y objetivos.
+
+---
 
 ## Licencia
 
 Licencia MIT
 
-Derechos de Autor (c) [2025] [Fernando Hernández]
+Derechos de Autor (c) 2025 Fernando Hernández
 
-Por la presente se concede permiso, sin cargo, a cualquier persona que obtenga una copia de este software y archivos de documentación asociados (el "Software"), para tratar en el Software sin restricciones, incluyendo sin limitación los derechos para usar, copiar, modificar, fusionar, publicar, distribuir, sublicenciar, y/o vender copias del Software, y para permitir a las personas a quienes se les proporcione el Software hacerlo, sujeto a las siguientes condiciones:
+Se concede permiso, sin cargo, a cualquier persona que obtenga una copia de este software y archivos de documentación asociados (el "Software"), para tratar en el Software sin restricciones, incluyendo sin limitación los derechos de usar, copiar, modificar, fusionar, publicar, distribuir, sublicenciar, y/o vender copias del Software, y para permitir a las personas a quienes se les proporcione el Software hacerlo, sujeto a las siguientes condiciones:
 
 El aviso de copyright anterior y este aviso de permiso deberán ser incluidos en todas las copias o porciones sustanciales del Software.
 
