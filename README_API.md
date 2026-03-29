@@ -19,7 +19,7 @@ La API se conecta con la base de datos definida en el repositorio:
 
 1. Clonar el repositorio y cambiar a la rama **API**:
    ```bash
-   git clone https://github.com/tuusuario/TeChineoTuLomitoWebApp.git
+   git clone https://github.com/ferhm294/TeChineoTuLomitoWebApp.git
    cd TeChineoTuLomitoWebApp
    git checkout API
    ```
