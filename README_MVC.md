@@ -19,7 +19,7 @@ El sistema permite gestionar clientes, empleados, mascotas y procedimientos vete
 
 1. Clonar el repositorio y cambiar a la rama **MVC**:
    ```bash
-   git clone https://github.com/tuusuario/TeChineoTuLomitoWebApp.git
+   git clone https://github.com/ferhm294/TeChineoTuLomitoWebApp.git
    cd TeChineoTuLomitoWebApp
    git checkout MVC
    ```
